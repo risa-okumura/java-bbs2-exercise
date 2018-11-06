@@ -1,32 +1,26 @@
 package jp.co.rakus.form;
 
+import java.util.List;
+
 import javax.validation.constraints.NotBlank;
 
-/**
- * コメント情報を受け取るフォーム.
- * 
- * @author risa.okumura
- *
- */
-public class CommentForm {
+import jp.co.rakus.domain.Comment;
+
+public class ArticleForm {
 	
-	/**　コメントID	 */
+	/**	記事ID */
 	private String id;
-	/**　コメント投稿者名	 */
+	/**	記事投稿者名 */
 	@NotBlank(message="名前を入力してください")
 	private String name;
-	/**　コメント内容	 */
-	@NotBlank(message="コメント内容を入力してください")
+	/**	記事内容 */
+	@NotBlank(message="記事の内容を入力してください")
 	private String content;
-	/**　コメントが持つ記事のID	 */
-	private String articleId;
+	/**	コメント情報 */
+	private List<Comment> commentList;
 	
 	public Integer getIntId() {
 		return Integer.parseInt(this.id);
-	}
-	
-	public Integer getIntArticleId() {
-		return Integer.parseInt(this.articleId);
 	}
 	
 	public String getId() {
@@ -47,13 +41,12 @@ public class CommentForm {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public String getArticleId() {
-		return articleId;
+	public List<Comment> getCommentList() {
+		return commentList;
 	}
-	public void setArticleId(String articleId) {
-		this.articleId = articleId;
+	public void setCommentList(List<Comment> commentList) {
+		this.commentList = commentList;
 	}
-	
 	
 
 }
